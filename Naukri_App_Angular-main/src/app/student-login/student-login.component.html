@@ -1,0 +1,31 @@
+<p>Student <b>Login</b> Page!</p>
+
+<form (ngSubmit)="onSubmit()" #studentForm="ngForm">
+      <div>
+            <label for="emailOrMobile">Email / Mobile Number</label>
+            <input       type="text"       id="emailOrMobile"       name="emailOrMobile"       required      
+            [(ngModel)]="emailOrMobile"       #emailOrMobileInput="ngModel"     />
+            <span *ngIf="emailOrMobileInput.invalid && emailOrMobileInput.touched">
+                  Email or Mobile Number is required.
+                </span>
+          </div>
+
+      <div>
+            <label for="password">Password</label>
+            <input       type="password"       id="password"       name="password"       required       minlength="4"  
+                [(ngModel)]="password"       #passwordInput="ngModel"     />
+            <span *ngIf="passwordInput.invalid && passwordInput.touched">
+                  Password is required (at least 4 characters).
+                </span>
+          </div>
+    <br>
+      <button type="submit" [disabled]="studentForm.invalid">Submit</button>
+
+
+      <div *ngIf="errorMessage" style="color: red;">
+            {{ errorMessage }}
+          </div>
+
+    <button class="btn-space" [routerLink]="['/app-student-reg']">Register</button>
+</form>
+<!-- <br> -->

@@ -1,0 +1,40 @@
+<h3>Welcome to Recruiter Dashboard {{ username }} !</h3>
+<button (click)="onLogout()">Logout</button>
+
+<form [formGroup]="recruiterForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name</label>
+    <input id="name" formControlName="name" placeholder="Enter your name" />
+    <div *ngIf="recruiterForm.get('name')?.invalid && recruiterForm.get('name')?.touched">
+      Name is required
+    </div>
+  </div>
+<br>
+  <div>
+    <label for="email">Email</label>
+    <input id="email" formControlName="email" placeholder="Enter your email" />
+    <div *ngIf="recruiterForm.get('email')?.invalid && recruiterForm.get('email')?.touched">
+      Valid email is required
+    </div>
+  </div>
+  <br>
+  <div>
+    <label for="company">Company</label>
+    <input id="company" formControlName="company" placeholder="Enter your company name" />
+    <div *ngIf="recruiterForm.get('company')?.invalid && recruiterForm.get('company')?.touched">
+      Company name is required
+    </div>
+  </div>
+  <br>
+  <div>
+    <label for="jobTitle">Job Title</label>
+    <input id="jobTitle" formControlName="jobTitle" placeholder="Enter the job title" />
+  </div>
+  <br>
+  <div>
+    <label for="skillsRequired">Skills Required</label>
+    <input id="skillsRequired" formControlName="skillsRequired" placeholder="Enter required skills" />
+  </div>
+  <br>
+  <button type="submit" [disabled]="recruiterForm.invalid">Submit</button>
+</form>

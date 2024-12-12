@@ -1,0 +1,33 @@
+<p>Student <b>Register</b> Page!</p>
+<form (ngSubmit)="onSubmit()" #recruiterForm="ngForm">
+    <label for="username">Username</label>
+    <input type="text"  [(ngModel)]="username"     name="username"     id="username"     required    
+    minlength="3"     #usernameInput="ngModel"   />
+    <div *ngIf="usernameInput.invalid && usernameInput.touched">
+        <small *ngIf="usernameInput.errors?.['required']">Username is required.</small>
+        <small *ngIf="usernameInput.errors?.['minlength']">Username must be at least 3 characters long.</small>
+      </div>
+    <br /><br />
+    <label for="mobileNumber">Mobile</label>
+    <input     type="text"     [(ngModel)]="mobileNumber"     name="mobileNumber"     id="mobileNumber"     required    
+    pattern="^[0-9]{10}$"     #mobileInput="ngModel"   />
+    <div *ngIf="mobileInput.invalid && mobileInput.touched">
+        <small *ngIf="mobileInput.errors?.['required']">Mobile number is required.</small>
+        <small *ngIf="mobileInput.errors?.['pattern']">Mobile number must be exactly 10 digits.</small>
+      </div>
+    <br /><br />
+    <label for="email">Email</label>
+    <input     type="email"     [(ngModel)]="email"     name="email"     id="email"     required     email    
+    #emailInput="ngModel"   />
+    <div *ngIf="emailInput.invalid && emailInput.touched">
+        <small *ngIf="emailInput.errors?.['required']">Email is required.</small>
+        <small *ngIf="emailInput.errors?.['email']">Please enter a valid email address.</small>
+      </div>
+
+    
+    <br /><br />
+    <button class="btn-space" type="submit" [disabled]="recruiterForm.invalid">Register</button>
+
+  <button class="btn-space" [routerLink]="['/student-login']">Login</button>
+
+</form>

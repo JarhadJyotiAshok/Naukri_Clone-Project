@@ -1,0 +1,20 @@
+
+<!-- Adjusted Apply and Reject buttons with proper file handling -->
+<table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
+    <thead>
+      <tr>
+        <th style="border: 1px solid black; padding: 8px;">Company Name</th>
+        <th style="border: 1px solid black; padding: 8px;">Skills Required</th>
+        <th style="border: 1px solid black; padding: 8px;">Job Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let drive of companyDrives">
+        <td style="border: 1px solid black; padding: 8px;">{{ drive.company }}</td>
+        <td style="border: 1px solid black; padding: 8px;">{{ drive.skillsRequired }}</td>
+        <td style="border: 1px solid black; padding: 8px;">{{ drive.jobTitle }}</td>       
+      </tr>
+      
+    </tbody>
+  </table>
+  <br>

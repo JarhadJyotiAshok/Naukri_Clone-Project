@@ -1,0 +1,79 @@
+<h3>Welcome to Student Dashboard {{ username }}!</h3>
+<!-- <button (click)="onLogout()">Logout</button>
+<button (click)="navigateToDrive()">Company Drives</button> -->
+
+<button (click)="onLogout()" style="display: block; margin-bottom: 10px;">Logout</button>
+
+<button (click)="navigateToDrive()" style="display: block;">Company Drives</button>
+
+
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+  <div>
+    <br>
+    <label for="name">Name</label>
+    <input id="name" formControlName="name" placeholder="Enter your name" />
+    <div *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched">
+      Name is required
+    </div>
+  </div>
+<br>
+  <div>
+    <label for="email">Email</label>
+    <input id="email" formControlName="email" placeholder="Enter your email" />
+    <div *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched">
+      Valid email is required
+    </div>
+  </div>
+  <br>
+  <div>
+    <label for="education">Education</label>
+    <input id="education" formControlName="education" placeholder="Enter your education" />
+    <div *ngIf="studentForm.get('education')?.invalid && studentForm.get('education')?.touched">
+      Education is required
+    </div>
+  </div>
+  <br>
+  <div>
+    <label for="marks10">10th Marks</label>
+    <input id="marks10" formControlName="marks10" placeholder="Enter your 10th Marks" />
+  </div>
+  <br>
+  <div>
+    <label for="marks12">12th Marks</label>
+    <input id="marks12" formControlName="marks12" placeholder="Enter your 12th Marks" />
+  </div>
+  <br>
+  <div>
+    <label for="gradmarks">Graduation</label>
+    <input id="gradmarks" formControlName="gradmarks" placeholder="Enter your Graduation Marks" />
+  </div>
+  <br>
+  <div>
+    <label for="graduYear">Passing Graduation Year</label>
+    <input id="graduYear" formControlName="graduYear" placeholder="Enter your Passing Graduation Year" />
+  </div>
+  <br>
+  <!-- <div>
+    <label for="dob">Date Of Birth</label>
+    <input id="dob" formControlName="dob" placeholder="Enter your Date Of Birth" />
+  </div> -->
+  <div>
+    <label for="dob">Date Of Birth</label>
+    <input id="dob" type="date" formControlName="dob" placeholder="Enter your Date Of Birth" />
+  </div>
+  
+  <br>
+  <div>
+    <label for="skills">Skills</label>
+    <input id="skills" formControlName="skills" placeholder="Enter your skills" />
+  </div>
+  <br>
+  <div>
+    <label for="experience">Experience</label>
+    <input id="experience" formControlName="experience" placeholder="Enter your experience" />
+  </div>
+  <br>
+  <button type="submit" [disabled]="studentForm.invalid">Submit</button>
+</form>
+
+

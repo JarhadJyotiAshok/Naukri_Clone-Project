@@ -1,0 +1,35 @@
+<!-- Adjusted Apply and Reject buttons with proper file handling -->
+<table style="border-collapse: collapse; width: 100%; border: 1px solid black;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid black; padding: 8px;">Company Name</th>
+      <th style="border: 1px solid black; padding: 8px;">Skills Required</th>
+      <th style="border: 1px solid black; padding: 8px;">Job Title</th>
+      <th style="border: 1px solid black; padding: 8px;">Actions (Apply/Reject)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let drive of companyDrives">
+      <td style="border: 1px solid black; padding: 8px;">{{ drive.company }}</td>
+      <td style="border: 1px solid black; padding: 8px;">{{ drive.skillsRequired }}</td>
+      <td style="border: 1px solid black; padding: 8px;">{{ drive.jobTitle }}</td>
+      <td style="border: 1px solid black; padding: 8px;">
+        <!-- File input for resume upload -->
+        <input type="file" (change)="onFileSelected($event)" style="margin-right: 5px;" />  
+        <!-- Button to apply to a company -->
+        <button style="border: 1px solid black; padding: 8px; margin-right: 5px;" (click)="applyToCompany(drive)">
+          Apply
+        </button>
+        <!-- Button to reject a company -->
+        <button style="border: 1px solid black; padding: 8px;" (click)="rejectCompany(drive)">
+          Reject
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<!-- Button to navigate to the view of applied companies -->
+<button style="border: 1px solid black; padding: 8px;" [routerLink]="['/viewdrive']">
+  View Applied
+</button>
